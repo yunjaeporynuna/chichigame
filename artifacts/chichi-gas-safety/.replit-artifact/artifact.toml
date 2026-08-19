@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "치치의 가스안전 대작전"
+description = "브라우저에서 플레이하는 3~5분 분량의 시네마틱 플레이어블 애니메이션 게임. 집사가 집을 비운 사이 턱시도 고양이 치치가 어질러진 원룸을 정리하고 가스 누설 위험을 해결한다. 60초 라운드 동안 3D 공간을 자유롭게 탐색하며 8개의 오브젝트와 상호작용해 짧은 시네마틱을 발생시키고 점수를 얻는 힐링 아케이드 게임."
+version = "1.0.0"
+id = "artifacts/chichi-gas-safety"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22004
+
+[services.development]
+run = "pnpm --filter @workspace/chichi-gas-safety run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/chichi-gas-safety", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/chichi-gas-safety/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22004"
+BASE_PATH = "/"
