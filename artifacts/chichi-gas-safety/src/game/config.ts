@@ -165,28 +165,8 @@ export const KNOCK_DEFS: KnockDef[] = [
     scale: 1.25,
     block: [0.075, 0.05],
     prompt: '책상 정리하기',
-    caption: '무엇부터 정리할까?',
+    caption: '앞발로 흩어진 서류를 톡톡 밀어 가지런히 맞춘다.',
     sfx: 'paper',
-    options: [
-      {
-        id: 'papers',
-        label: '흩어진 서류 모으기',
-        hint: '+50',
-        caption: '앞발로 종이를 톡톡 밀어 한 줄로 맞춘다.',
-      },
-      {
-        id: 'pen',
-        label: '펜 통에 꽂기',
-        hint: '+50',
-        caption: '굴러다니던 펜을 입으로 물어 통에 쏙 꽂는다.',
-      },
-      {
-        id: 'mug',
-        label: '머그컵 제자리에',
-        hint: '+50',
-        caption: '아슬아슬한 머그컵을 조심조심 안쪽으로 민다.',
-      },
-    ],
     video: 'cut3_desk.mp4',
   },
   {
