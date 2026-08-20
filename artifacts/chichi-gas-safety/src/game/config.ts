@@ -187,6 +187,7 @@ export const KNOCK_DEFS: KnockDef[] = [
         caption: '아슬아슬한 머그컵을 조심조심 안쪽으로 민다.',
       },
     ],
+    video: 'cut3_desk.mp4',
   },
   {
     id: 'gas_stove',
