@@ -1,3 +1,4 @@
 - [No WebGL in sandbox browsers](no-webgl-sandbox.md) — headless/screenshot browsers here cannot make a WebGL context; verify 3D offline with CPU tools instead of retrying.
 - [Hand-authored room over scanned GLB](room-authoring.md) — the gas-safety room is code-authored data shared by engine and tools; authoring traps and the reachability rule.
 - [Composite 3D markers](composite-3d-markers.md) — marker animations must style every child mesh when an indicator is a group, not a single mesh.
+- [Character-consistent video prompts](character-consistent-video-prompts.md) — lock positive facial markings separately from forbidden markings, then verify contact sheets before replacement.
