@@ -17,6 +17,46 @@ export function CinematicScreen({ state }: { state: GameState }) {
 
   if (!cutscene) return null;
   const showVideo = Boolean(videoUrl) && !videoBroken;
+  const fullScreenVideo =
+    showVideo && (sceneId === 'intro' || sceneId === 'ending');
+
+  if (fullScreenVideo) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.45 }}
+        className="absolute inset-0 z-40 bg-black pointer-events-auto"
+      >
+        <video
+          key={videoUrl ?? ''}
+          src={videoUrl ?? undefined}
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onError={() => setVideoBroken(true)}
+          className="h-full w-full object-contain"
+        />
+        {cutscene.canSkip && (
+          <button
+            onClick={() => {
+              actions.uiSound('tap');
+              actions.skip();
+            }}
+            className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-black/45 px-4 py-2 text-sm font-bold tracking-widest text-white/70 backdrop-blur-sm transition-colors hover:text-white sm:right-8 sm:top-6"
+            style={{
+              top: 'calc(1rem + env(safe-area-inset-top))',
+              right: 'calc(1rem + env(safe-area-inset-right))',
+            }}
+          >
+            {STR.skip} <SkipForward size={14} />
+          </button>
+        )}
+      </motion.div>
+    );
+  }
 
   return (
     <div className="absolute inset-0 z-40 pointer-events-none flex flex-col justify-between">

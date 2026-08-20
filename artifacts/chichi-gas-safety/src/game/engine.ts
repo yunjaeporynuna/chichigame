@@ -53,6 +53,7 @@ interface Cutscene {
   id: string;
   title: string;
   captions: string[];
+  video?: string;
   duration: number;
   t: number;
   shots: Shot[];
@@ -589,6 +590,7 @@ export class Game {
       id: 'intro',
       title: STR.title,
       captions: [...STR.introCaption],
+      video: 'intro.mp4',
       duration: TUNING.introDuration,
       t: 0,
       shots,
@@ -738,6 +740,7 @@ export class Game {
       id: 'ending',
       title: STR.title,
       captions: [...STR.endingCaption],
+      video: 'ending.mp4',
       duration: TUNING.endingDuration,
       t: 0,
       shots,
@@ -773,7 +776,7 @@ export class Game {
         caption: cut.captions[index],
         canSkip: true,
         progress,
-        video: cut.prop?.def.video,
+        video: cut.video ?? cut.prop?.def.video,
       },
     });
   }

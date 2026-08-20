@@ -50,8 +50,8 @@ export const TUNING = {
 
   stickerGoal: 5,
   cutsceneDuration: 8,
-  introDuration: 10,
-  endingDuration: 16,
+  introDuration: 8.1,
+  endingDuration: 8.1,
 
   dprCap: 1.5,
   seed: 20260819,

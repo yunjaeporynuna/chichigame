@@ -3,58 +3,40 @@ import { GameState } from '@/game/types';
 import { STR } from '@/game/strings';
 import { actions } from '@/game/store';
 import { Button } from '../components/Button';
+import endingCard from '@/assets/ending-card.png';
 
 export function FinScreen({ state }: { state: GameState }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="absolute inset-0 bg-black z-50 flex flex-col items-center justify-center pointer-events-auto px-6"
-      style={{
-        paddingTop: 'calc(1.5rem + env(safe-area-inset-top))',
-        paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom))'
-      }}
+      transition={{ duration: 1 }}
+      className="absolute inset-0 z-50 flex items-center justify-center overflow-hidden bg-black pointer-events-auto"
     >
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <motion.h1 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 2 }}
-          className="text-6xl sm:text-8xl font-display text-white tracking-widest font-bold drop-shadow-lg"
-        >
-          {STR.fin}
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1.5 }}
-          className="mt-6 text-white/60 font-sans tracking-widest text-sm sm:text-base text-center"
-        >
-          {STR.finNote}
-        </motion.p>
-      </div>
+      <img
+        src={endingCard}
+        alt={`${STR.fin} — ${STR.finNote}`}
+        className="absolute inset-0 h-full w-full object-contain"
+      />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3.5, duration: 1 }}
-        className="w-full max-w-md flex flex-col sm:flex-row gap-4 pb-12 sm:pb-20"
+        transition={{ delay: 1.3, duration: 0.7 }}
+        className="absolute bottom-4 right-4 flex gap-2 sm:bottom-6 sm:right-6"
+        style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
       >
-        <Button 
-          variant="primary" 
-          size="lg" 
-          className="flex-1 shadow-primary/20"
+        <Button
+          variant="primary"
+          className="border border-amber-300/30 bg-amber-500/90 px-4 py-2 text-sm text-black shadow-xl hover:bg-amber-400 sm:px-5"
           onClick={() => actions.restart()}
           soundTone="meow"
         >
           {STR.restart}
         </Button>
-        <Button 
-          variant="outline" 
-          size="lg" 
-          className="flex-1 bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-none"
+        <Button
+          variant="outline"
+          className="border-white/25 bg-black/55 px-4 py-2 text-sm text-white backdrop-blur-sm hover:bg-white/15 sm:px-5"
           onClick={() => actions.toTitle()}
         >
           {STR.toTitle}
