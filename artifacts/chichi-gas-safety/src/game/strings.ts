@@ -4,7 +4,7 @@
  */
 export const STR = {
   title: '치치의 가스안전 대작전',
-  subtitle: '집사가 없는 사이, 작은 턱시도 고양이의 60초',
+  subtitle: '집사가 없는 사이, 작은 턱시도 고양이의 120초',
   start: '시작하기',
   restart: '다시 하기',
   toTitle: '타이틀로',
