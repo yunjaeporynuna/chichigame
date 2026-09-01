@@ -7,7 +7,7 @@ export function asset(path: string): string {
 
 export const TUNING = {
   /** Round length in seconds. */
-  roundTime: 120,
+  roundTime: 60,
   /** Cat movement speed in world units per second. */
   moveSpeed: 0.34,
   goldenMoveSpeed: 0.42,
